@@ -20,8 +20,8 @@
 			<script type="text/javascript">
 				var sup1 = new SuperGif({
           gif: document.getElementById('example1'),
-          auto_play: '0',
-          on_end: function() {
+          autoPlay: '0',
+          onEnd: function() {
             sup1.pause();
           }
 				});
@@ -33,7 +33,7 @@
 			</script>
 			<a href="javascript:;" onmousedown="sup1.pause(); return false;">Pause</a> |
 			<a href="javascript:;" onmousedown="sup1.play(); return false;">Play</a> |
-			<a href="javascript:;" onmousedown="sup1.moveTo(0); return false;">Restart</a> |
+			<a href="javascript:;" onmousedown="sup1.moveTo(0); sup1.play(); return false;">Restart</a> |
 			<a href="javascript:;" onmousedown="sup1.moveRelative(1); return false;">Step forward</a> |
 			<a href="javascript:;" onmousedown="sup1.moveRelative(-1); return false;">Step back</a>
 		</center>
