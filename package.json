@@ -1,0 +1,10 @@
+{
+  "name": "playgif-js",
+  "version": "0.0.1",
+  "readme": "README.markdown",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "~2.0.4",
+    "gulp-load-plugins": "~0.5.0"
+  }
+}
