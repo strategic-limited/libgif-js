@@ -758,13 +758,20 @@
           time = time * 1000;
           var seekIndex = -1;
           frames.forEach(function (frame, idx) {
-            if (frame.delay > time && seekIndex < 0) {
+            if (seekIndex >= 0) {
+              return;
+            }
+
+            if (frame.delay * 10 > time) {
               seekIndex = idx;
             } else {
-              time -= frame.delay;
+              time -= frame.delay * 10;
             }
           });
-          seekIndex >= 0 && this.move_to(seekIndex);
+          if (seekIndex >= 0) {
+            i = seekIndex;
+            putFrame();
+          }
         }
       }
     }());
