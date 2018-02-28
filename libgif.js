@@ -753,6 +753,14 @@
           i = frame_idx;
           putFrame();
         },
+        get_current_time: function () {
+          var result = 0;
+          var currentFrame = i;
+          for (var pos = 0; pos <= currentFrame; pos++) {
+            result += frames[pos].delay * 10;
+          }
+          return result / 1000.0;
+        },
         set_current_time: function (time) {
           // convert to milliseconds
           time = time * 1000;
@@ -908,6 +916,9 @@
       },
       getDuration: function () {
         return player.duration();
+      },
+      getCurrentTime: function () {
+        return player.get_current_time();
       },
       getCurrentFrame: function () {
         return player.current_frame();
