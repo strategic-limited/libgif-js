@@ -855,32 +855,32 @@
       // play controls
       play: player.play,
       pause: player.pause,
-      move_relative: player.move_relative,
-      move_to: player.move_to,
+      moveRelative: player.move_relative,
+      moveTo: player.move_to,
 
       // getters for instance vars
-      get_playing: function () {
+      getPlaying: function () {
         return playing
       },
-      get_canvas: function () {
+      getCanvas: function () {
         return canvas
       },
-      get_canvas_scale: function () {
+      getCanvasScale: function () {
         return get_canvas_scale()
       },
-      get_loading: function () {
+      getLoading: function () {
         return loading
       },
-      get_auto_play: function () {
+      getAutoPlay: function () {
         return options.auto_play
       },
-      get_length: function () {
+      getLength: function () {
         return player.length()
       },
-      get_current_frame: function () {
+      getCurrentFrame: function () {
         return player.current_frame()
       },
-      load_url: function (src, callback) {
+      loadUrl: function (src, callback) {
         if (!load_setup(callback)) return;
 
         var h = new XMLHttpRequest();
@@ -932,13 +932,13 @@
       load: function (callback) {
         this.load_url(gif.getAttribute('rel:animated_src') || gif.src, callback);
       },
-      load_raw: function (arr, callback) {
+      loadRaw: function (arr, callback) {
         if (!load_setup(callback)) return;
         if (!initialized) init();
         stream = new Stream(arr);
         setTimeout(doParse, 0);
       },
-      set_frame_offset: setFrameOffset
+      setFrameOffset: setFrameOffset
     };
   };
 
