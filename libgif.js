@@ -392,17 +392,17 @@
     var frameOffsets = []; // elements have .x and .y properties
 
     var gif = options.gif;
-    if (typeof options.auto_play === 'undefined')
-      options.auto_play = (!gif.getAttribute('rel:auto_play') || gif.getAttribute('rel:auto_play') === '1');
+    if (typeof options.autoPlay === 'undefined')
+      options.autoPlay = (!gif.getAttribute('rel:auto_play') || gif.getAttribute('rel:auto_play') === '1');
 
-    var onEndListener = (options.hasOwnProperty('on_end') ? options.on_end : null);
-    var loopDelay = (options.hasOwnProperty('loop_delay') ? options.loop_delay : 0);
-    var overrideLoopMode = (options.hasOwnProperty('loop_mode') ? options.loop_mode : 'auto');
-    var drawWhileLoading = (options.hasOwnProperty('draw_while_loading') ? options.draw_while_loading : true);
-    var showProgressBar = drawWhileLoading ? (options.hasOwnProperty('show_progress_bar') ? options.show_progress_bar : true) : false;
-    var progressBarHeight = (options.hasOwnProperty('progressbar_height') ? options.progressbar_height : 25);
-    var progressBarBackgroundColor = (options.hasOwnProperty('progressbar_background_color') ? options.progressbar_background_color : 'rgba(255,255,255,0.4)');
-    var progressBarForegroundColor = (options.hasOwnProperty('progressbar_foreground_color') ? options.progressbar_foreground_color : 'rgba(255,0,22,.8)');
+    var onEndListener = (options.hasOwnProperty('onEnd') ? options.onEnd : null);
+    var loopDelay = (options.hasOwnProperty('loopDelay') ? options.loopDelay : 0);
+    var overrideLoopMode = (options.hasOwnProperty('loopMode') ? options.loopMode : 'auto');
+    var drawWhileLoading = (options.hasOwnProperty('drawWhileLoading') ? options.drawWhileLoading : true);
+    var showProgressBar = drawWhileLoading ? (options.hasOwnProperty('showProgressBar') ? options.showProgressBar : true) : false;
+    var progressBarHeight = (options.hasOwnProperty('progressbarHeight') ? options.progressbarHeight : 25);
+    var progressBarBackgroundColor = (options.hasOwnProperty('progressbarBackgroundColor') ? options.progressbarBackgroundColor : 'rgba(255,255,255,0.4)');
+    var progressBarForegroundColor = (options.hasOwnProperty('progressbarForegroundColor') ? options.progressbarForegroundColor : 'rgba(255,0,22,.8)');
 
     var clear = function () {
       transparency = null;
@@ -619,7 +619,7 @@
       // bar for each image chunk (not just the final image).
       if (drawWhileLoading) {
         ctx.drawImage(tmpCanvas, 0, 0);
-        drawWhileLoading = options.auto_play;
+        drawWhileLoading = options.autoPlay;
       }
 
       lastImg = img;
@@ -722,7 +722,7 @@
             ctx.scale(get_canvas_scale(), get_canvas_scale());
           }
 
-          if (options.auto_play) {
+          if (options.autoPlay) {
             step();
           }
           else {
@@ -930,7 +930,7 @@
         h.send();
       },
       load: function (callback) {
-        this.load_url(gif.getAttribute('rel:animated_src') || gif.src, callback);
+        this.loadUrl(gif.getAttribute('rel:animated_src') || gif.src, callback);
       },
       loadRaw: function (arr, callback) {
         if (!load_setup(callback)) return;
