@@ -752,6 +752,19 @@
         move_to: function (frame_idx) {
           i = frame_idx;
           putFrame();
+        },
+        set_current_time: function (time) {
+          // convert to milliseconds
+          time = time * 1000;
+          var seekIndex = -1;
+          frames.forEach(function (frame, idx) {
+            if (frame.delay > time && seekIndex < 0) {
+              seekIndex = idx;
+            } else {
+              time -= frame.delay;
+            }
+          });
+          seekIndex >= 0 && this.move_to(seekIndex);
         }
       }
     }());
@@ -865,6 +878,7 @@
       pause: player.pause,
       moveRelative: player.move_relative,
       moveTo: player.move_to,
+      setCurrentTime: player.set_current_time,
 
       // getters for instance vars
       getPlaying: function () {
