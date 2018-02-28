@@ -741,6 +741,14 @@
         length: function () {
           return frames.length
         },
+        duration: function () {
+          var result = 0;
+          frames.forEach(function (frame) {
+            result += frame.delay * 10;
+          });
+          // in milliseconds, so convert it to seconds
+          return result / 1000.0;
+        },
         move_to: function (frame_idx) {
           i = frame_idx;
           putFrame();
@@ -860,25 +868,28 @@
 
       // getters for instance vars
       getPlaying: function () {
-        return playing
+        return playing;
       },
       getCanvas: function () {
-        return canvas
+        return canvas;
       },
       getCanvasScale: function () {
-        return get_canvas_scale()
+        return get_canvas_scale();
       },
       getLoading: function () {
-        return loading
+        return loading;
       },
       getAutoPlay: function () {
-        return options.auto_play
+        return options.autoPlay;
       },
       getLength: function () {
-        return player.length()
+        return player.length();
+      },
+      getDuration: function () {
+        return player.duration();
       },
       getCurrentFrame: function () {
-        return player.current_frame()
+        return player.current_frame();
       },
       loadUrl: function (src, callback) {
         if (!load_setup(callback)) return;
